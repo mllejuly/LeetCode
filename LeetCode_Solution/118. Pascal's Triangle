@@ -1,0 +1,26 @@
+class Solution(object):
+    def generate(self, numRows):
+        """
+        :type numRows: int
+        :rtype: List[List[int]]
+        """
+        if numRows == 0:
+            return []
+        if numRows == 1:
+            return [[1]]
+        if numRows == 2:
+            return [[1], [1, 1]]
+        
+        triangle = [[1], [1, 1]]
+        
+        for i in range(3, numRows + 1):
+            pre = triangle[i - 2]
+            current = [1]
+            for j in range(i - 2):
+                current.append(pre[j] + pre[j + 1])
+            current.append(1)
+            triangle.append(current)
+        return triangle
+  
+每一层的第i个位置，等于上一层第i-1与第i个位置之和。 
+每一层的数组为current，current第i个值为上一层数组pre第j和j+1之和

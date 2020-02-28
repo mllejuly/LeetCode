@@ -1,0 +1,22 @@
+class Solution(object):
+    def maxSubArray(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: int
+        """
+        n = len(nums)
+        tmp = 0
+        res = float('-inf')
+        for i in range(n):
+            if tmp < 0:
+                tmp = 0
+            tmp = tmp + nums[i]
+            res = max(res, tmp)
+        return res
+
+
+
+算法1：
+最大子序列和问题
+时间复杂度: O(n)
+空间复杂度: O(1)

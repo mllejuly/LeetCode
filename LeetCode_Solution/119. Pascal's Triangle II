@@ -1,0 +1,29 @@
+class Solution(object):
+    def getRow(self, rowIndex):
+        """
+        :type rowIndex: int
+        :rtype: List[int]
+        """
+        if rowIndex == 0:
+            return [1]
+        if rowIndex == 1:
+            return [1, 1]
+        
+        pre = [1, 1]
+        current = []
+        for i in range(2, rowIndex + 1):
+            current.append(1)
+            for j in range(i - 1):
+                current.append(pre[j] + pre[j + 1])
+            current.append(1)
+            pre = current.copy()
+            current.clear()
+            
+        return pre
+
+
+
+要求在O(k)的空间而非时间
+与 118. Pascal's Triangle 算法相同，计算每一行，但是只保存上一行就可以
+同时注意，行数从0开始
+

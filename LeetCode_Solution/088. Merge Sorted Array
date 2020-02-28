@@ -1,0 +1,22 @@
+class Solution(object):
+    def merge(self, nums1, m, nums2, n):
+        p, q, k = m - 1, n - 1, m + n - 1
+        while p >= 0 and q >= 0:
+            if nums1[p] > nums2[q]:
+                nums1[k] = nums1[p]
+                k, p = k - 1, p - 1
+            else:
+                nums1[k] = nums2[q]
+                k, q = k - 1, q - 1
+        nums1[:q + 1] = nums2[:q + 1]
+        
+
+
+
+初始化 nums1 和 nums2 的元素数量分别为 m 和 n。你
+可以假设 nums1 有足够的空间（空间大小大于或等于 m + n）来保存 nums2 中的元素。如：
+
+输入:nums1 = [1,2,3,0,0,0]，m = 3，nums2 = [2,5,6]，n = 3
+输出: [1,2,2,3,5,6]
+
+用指针p，q标记当前nums1与nums2需要操作的元素，指针k表示当前要插入位置，循环一边进行比较和替换即可.

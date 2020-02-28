@@ -1,0 +1,27 @@
+class Solution:
+    def removeElement(self, nums, val):
+        """
+        :type nums: List[int]
+        :type val: int
+        :rtype: int
+        """
+        j = 0
+        for i in nums:
+            if i != val:
+                nums[j] = i
+                j += 1
+        
+        return j
+
+
+
+
+
+
+解析：
+给定一个数组和一个值，移除这个数组中的所有该值。
+不要申请额外空间，在当前数组操作，操作完成后超出需要长度的值是什么无所谓。
+也就是说，数组[3,2,2,3]给定值为3，则处理之后需要返回2，数组处理成[2,2,…]，前2个对就行了，后面的无所谓。
+这道题其实和上一题思路是一样的，都是原地处理数组，返回length，超出length的内容不关注。
+同上一题，只需要维护2个指针就OK了，快指针遍历数组，发现val直接后移，若不是则赋值给慢指针。
+https://blog.csdn.net/ZJRN1027/article/details/81283929
