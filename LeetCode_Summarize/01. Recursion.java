@@ -5,6 +5,7 @@ class Solution172 {
         if (n < 5) {
             return 0;
         }
+
         // recursion rule
         return (n / 5) + trailingZeroes(n / 5);
     }
