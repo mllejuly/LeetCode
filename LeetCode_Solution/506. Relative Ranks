@@ -1,0 +1,46 @@
+class Solution {
+    
+    // Tag: Google, Sort 
+    public String[] findRelativeRanks(int[] nums) {
+        
+        Map<Integer, Integer> score = new HashMap();
+        
+        // 使用hashmap记录好元素的原始位置
+        for (int i = 0; i < nums.length; i++) {
+            score.put(nums[i], i);
+        }
+        
+        // 排序：从小到大
+        Arrays.sort(nums);
+        
+        // 逆向排序：从大到小
+        for (int i = 0; i < nums.length / 2; i++) {
+            int temp = nums[i];
+            nums[i] = nums[nums.length - i - 1];
+            nums[nums.length - i - 1] = temp;
+        }
+        
+        
+        String[] answer = new String[nums.length];
+        for (int i = 0; i < nums.length; i++) {
+            
+            String res = String.valueOf(i + 1);
+            
+            if (i == 0) {
+                res = "Gold Medal";
+            }
+            if (i == 1) {
+                res = "Silver Medal";
+            }
+            if (i == 2) {
+                res = "Bronze Medal";
+            }
+            
+            // 排序之后按原来元素的位置存放比赛排名
+            answer[score.get(nums[i])] = res;
+        
+        }
+        
+        return answer;
+    }
+}
