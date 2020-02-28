@@ -1,0 +1,3 @@
+# Leetcode
+
+Leetcode practice notes
