@@ -1,8 +1,8 @@
 ## Map
 
-Map<Integer, Integer> map = new HashMap<>();
-map.get(key);
-map.containsKey(key);
+* Map<Integer, Integer> map = new HashMap<>();
+* map.get(key);
+* map.containsKey(key);
 
 
 
