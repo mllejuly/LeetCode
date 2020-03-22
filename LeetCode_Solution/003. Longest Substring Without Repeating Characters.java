@@ -8,7 +8,7 @@ class Solution {
         int rightIdx = 0;
         
         int n = s.length();
-        while (leftIdx < n && rightIdx < n) {
+        while (rightIdx < n) {
             
             if (!set.contains(s.charAt(rightIdx))) {
                 set.add(s.charAt(rightIdx));
