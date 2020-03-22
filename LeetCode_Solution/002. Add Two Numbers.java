@@ -1,4 +1,5 @@
 //////////////////////////////////////////////////////////////////////////////////////
+
 /**
  * Definition for singly-linked list.
  * public class ListNode {
@@ -7,8 +8,10 @@
  *     ListNode(int x) { val = x; }
  * }
  */
+
 class Solution {
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
+        
         ListNode dummyHead = new ListNode(0);
         ListNode p = l1, q = l2, cur = dummyHead;
         
@@ -31,10 +34,15 @@ class Solution {
             
         }
         
+        if (carry > 0) {
+            cur.next = new ListNode(carry);
+        }
+        
         return dummyHead.next;
         
     }
 }
+
 //////////////////////////////////////////////////////////////////////////////////////
 
 
