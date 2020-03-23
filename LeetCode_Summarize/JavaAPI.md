@@ -1,14 +1,26 @@
-## Map
+## HashMap
 
 * Map<Integer, Integer> map = new HashMap<>();
-* map.get(key);
-* map.containsKey(key);
+* get();
+* containsKey();
 
 
+## HashSet
+* Set<Character> set = new HashSet<>();
+* add();
+* remove();
+* contains();
 
 
+## String
+* charAt();
 
+
+## Math
+* Math.max(a, b);
 
 
 ## Exception
-throw new IllegalArgumentException("No solution");
+* throw new IllegalArgumentException("Exception Message");
+
+
