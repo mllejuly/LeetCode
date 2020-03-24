@@ -35,6 +35,7 @@ class Solution {
         }
         
         return step[l1][l2];
+        
     }
     
     private int min(int a, int b, int c) {
