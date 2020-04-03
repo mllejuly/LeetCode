@@ -1,5 +1,26 @@
-// 子数组，Bloomberg，微软，数组，领英，贪心，枚举法
+// Greedy
+class Solution {
+    public int maxSubArray(int[] nums) {
+        int n = nums.length;
+        int currSum = nums[0];
+        int maxSum = nums[0];
 
+        for(int i = 1; i < n; ++i) {
+            currSum = Math.max(nums[i], currSum + nums[i]);
+            maxSum = Math.max(maxSum, currSum);
+        }
+    
+        return maxSum;
+    }
+}
+// Time : O(N), it's one pass along the array.
+// Space: O(1), it's a constant space solution.
+
+
+
+
+////////////////////////////////////////////////////////////////////////////////////
+// 子数组，Bloomberg，微软，数组，领英，贪心，枚举法
 class Solution {
     public int maxSubArray(int[] nums) {
         
