@@ -1,20 +1,21 @@
 class TwoSum {
 
+    // map: count the occurrences of a number
+    // key: number, value: occurrences
     private Map<Integer, Integer> map = new HashMap<>();
-    // space: O(n)
     
-    /** Initialize your data structure here. */
+    
     public TwoSum() {
         
     }
+
     
     /** Add the number to an internal data structure.. */
     public void add(int number) {
         map.put(number, map.getOrDefault(number, 0) + 1);
     }
-    // time: O(1)
     
-    
+
     /** Find if there exists any pair of numbers which sum is equal to the value. */
     public boolean find(int value) {
         
@@ -35,9 +36,12 @@ class TwoSum {
         // No complement find for entire map: return false
         return false;
     }
-    // time: O(n)
     
 }
+
+
+// time : O(1) for add, O(n) for find
+// space: O(n)
 
 
 /**
