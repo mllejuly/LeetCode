@@ -1,16 +1,16 @@
 class Solution {
     public int[] twoSum(int[] numbers, int target) {
-        int i = 0;
-        int j = numbers.length - 1;
+        int l = 0;
+        int r = numbers.length - 1;
         
-        while (i < j) {
-            int tmpSum = numbers[i] + numbers[j];
+        while (l < r) {
+            int tmpSum = numbers[l] + numbers[r];
             if (tmpSum < target) {
-                i++;
+                l++;
             } else if (tmpSum > target) {
-                j--;
+                r--;
             } else {
-                return new int[] {i + 1, j + 1};
+                return new int[] {l + 1, r + 1};
             }
         }
         throw new IllegalArgumentException("No two sum solution.");
