@@ -2,9 +2,7 @@
 
 class Solution {
     public int[] twoSum(int[] nums, int target) {
-        // 1. Initialize HashMap
-        //    key: nums[i]
-        //    value: i
+        // 1. Initialize HashMap (key: nums[i], value: i)
         Map<Integer, Integer> map = new HashMap<>();
         
         // 2. Iterate the nums array
