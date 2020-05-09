@@ -2,6 +2,12 @@ class Solution {
     
     public boolean isNumber(String s) {
         
+        // count & position
+        // num : at least 1 time
+        // exp : can only appear 1 time, between numbers
+        // sign: appear at index 0 || before exp
+        // dec : can only appear 1 time
+        
         // skip heading/trailing whitespace
         s = s.trim();
         
@@ -14,36 +20,41 @@ class Solution {
         for (int i = 0; i < s.length(); i++) {
             
             if ('0' <= s.charAt(i) && s.charAt(i) <= '9') {
-                // valid num
+                num = true;
+                
                 if (exp) {
                     numAfterExp = true;
                 }
-                num = true;
+                
             } else if (s.charAt(i) == '.') {
-                // valid dec: no exp or dec before cur dec
+                // " 99e2.5 " -> exp before dec -> false
                 if (exp || dec) {
                     return false;
                 }
                 dec = true;
             } else if (s.charAt(i) == 'e') {
-                // valid exp: no exp before cur exp; must be followed after a number
+                // "e3" -> false
                 if (exp || !num) {
                     return false;
                 }
                 numAfterExp = false;
                 exp = true;
             } else if (s.charAt(i) == '+' || s.charAt(i) == '-') {
-                // valid sign: can only appear at 0; cannot follow directly after exp
+                // " 6e-1" -> true
+                // " --6 " -> false
+                // "-+3" -> false
                 if (i != 0 && s.charAt(i - 1) != 'e') {
                     return false;
                 }
             } else {
+                // "1 a" -> false
+                // "95a54e53" -> false
                 return false;
             }
             
         }
         
-        // valid num with valid exp or no exp
+        // " 1e" -> false
         return num && ( (exp && numAfterExp) || (!exp && !numAfterExp) );
         
     }
