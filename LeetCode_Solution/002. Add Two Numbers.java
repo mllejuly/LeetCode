@@ -1,35 +1,35 @@
-//////////////////////////////////////////////////////////////////////////////////////
-
 /**
  * Definition for singly-linked list.
  * public class ListNode {
  *     int val;
  *     ListNode next;
- *     ListNode(int x) { val = x; }
+ *     ListNode() {}
+ *     ListNode(int val) { this.val = val; }
+ *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
  * }
  */
-
 class Solution {
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
-        
-        ListNode dummyHead = new ListNode(0);
-        ListNode p = l1, q = l2, cur = dummyHead;
+        ListNode dummyHead = new ListNode();
+        ListNode cur = dummyHead;
+        ListNode node1 = l1;
+        ListNode node2 = l2;
         
         int carry = 0;
-        while (p != null || q != null) {
-            int x = (p != null) ? p.val : 0;
-            int y = (q != null) ? q.val : 0;
-            int sum = x + y + carry;
+        while (node1 != null || node2 != null) {
+            int num1 = node1 != null ? node1.val : 0;
+            int num2 = node2 != null ? node2.val : 0;
+            int sum = num1 + num2 + carry;
             
             cur.next = new ListNode(sum % 10);
-            carry = sum / 10;
             cur = cur.next;
+            carry = sum / 10;
             
-            if (p != null) {
-                p = p.next;
+            if (node1 != null) {
+                node1 = node1.next;
             }
-            if (q != null) {
-                q = q.next;
+            if (node2 != null) {
+                node2 = node2.next;
             }
             
         }
@@ -43,9 +43,16 @@ class Solution {
     }
 }
 
+
+
+// time : O(max(m,n))
+// space: O(max(m,n))
+
+
+
 //////////////////////////////////////////////////////////////////////////////////////
 
-
+// 分析:
 // 需要考虑的3种edge case
 // 1. 两个链表的长度不一样长
 // 2. 其中一个链表长度为空
