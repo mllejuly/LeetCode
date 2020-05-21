@@ -35,3 +35,7 @@ class Solution {
         return minDepth + 1;
     }
 }
+
+
+// time : O(n)
+// space: O(n)
