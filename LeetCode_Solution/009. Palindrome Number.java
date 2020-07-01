@@ -10,6 +10,7 @@ class Solution {
             rev = rev * 10 + num % 10;
             num /= 10;
         }
+        
         return rev == x;
         
     }
