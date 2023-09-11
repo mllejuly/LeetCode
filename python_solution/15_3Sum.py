@@ -3,11 +3,13 @@ class Solution(object):
         result = []
         nums.sort()
         for i in range(len(nums)):
+            # nums already sorted
             if nums[i] > 0:
                 break
             # skip duplicate num
-            if i == 0 or nums[i] != nums[i-1]:
-                self.twoSum(nums, i, result)
+            if i != 0 and nums[i] == nums[i-1]:
+                continue
+            self.twoSum(nums, i, result)
         return result
 
     def twoSum(self, nums, i, result):
@@ -22,3 +24,5 @@ class Solution(object):
                     j += 1
             visited.add(nums[j])
             j += 1
+
+        
